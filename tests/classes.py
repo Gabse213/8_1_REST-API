@@ -41,4 +41,4 @@ class Subject(Person):
 
 if __name__ == "__main__":
     s1 = Subject("Simon", "Gabriel","male", "5","mci@test.at")
-    s1.post()
+    s1.put()
