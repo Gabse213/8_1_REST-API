@@ -10,7 +10,7 @@ url = "http://127.0.0.1:5000/person/"
 data = {
     "id" : "122",
     "first_name": "Dr.",
-    "last_name": "No"
+    "last_name": "ye"
 }
 
 # Convert the data to JSON format

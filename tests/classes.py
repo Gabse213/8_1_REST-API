@@ -1,6 +1,6 @@
 import json
 import requests
-
+url="http://127.0.0.1:5000/person" 
 class Person():
     def __init__(self, first_name, last_name):
         self.first_name = first_name
@@ -14,24 +14,31 @@ class Subject(Person):
         self.age = age
         self.email=email
 
+
+
     def post(self):
         person_json = json.dumps(self.__dict__)
+        response = requests.post(url,json=self.__dict__)
         print("JSON: ", person_json)
-
+        print("2",response.text)
         # Hier Beispiel aus post_api.py ergänzen
 
     def put(self):
-        url="https://127.0.0.1:5000"
-        data={"first_name":self.first_name}
-        response = requests.post(url, json=data)
-        return response.status_code
+        url= "http://127.0.0.1:5000/person/122"
+        data_json= json.dumps(self.__dict__)
+        response = requests.put(url, data= data_json)
+        print(self.__dict__)
+        print(response.text)
+        
     
     def update_email(self):
-        url = "http://127.0.0.1:5000...."
-        data = {"email": self.email}
-        response = requests.post(url, json=data)
-        return response.status_code
+        url= "http://127.0.0.1:5000/person/"
+        data_json= json.dumps(self.__dict__)
+        response = requests.put(url, data= data_json)
+        print(self.email)
+        print(response.text)
+
 
 if __name__ == "__main__":
-    s1 = Subject("Simon", "Gabriel","male", "567","gs56@gmail.at")
+    s1 = Subject("Simon", "Gabriel","male", "5","mci@test.at")
     s1.post()
